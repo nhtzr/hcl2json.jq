@@ -7,18 +7,18 @@ json2hcl reverse output is hard to follow for me. So I made this library to make
 ### Usage example.
 
 * Given:
-** Install [json2hcl](https://github.com/kvz/json2hcl)
-** Put hcl2json.jq in your `~/.jq` folder
+* * Install [json2hcl](https://github.com/kvz/json2hcl)
+* * Put hcl2json.jq in your `~/.jq` folder
   ```
   mkdir -p "$HOME/.jq"
   wget https://raw.githubusercontent.com/nhtzr/hcl2json.jq/master/hcl2json.jq -O "$HOME/.jq/hcl2json.jq"
   ```
-** this script as `get_name.jq`
+* * this script as `get_name.jq`
   ```
   include "hcl2json";
   tf_file.variable.my_map[] | select(.id==4) | "\(.greet) \(.name)"
   ```
-** And this tf file `test.tf`
+* * And this tf file `test.tf`
   ```
   variable "my_map" {
       default = {
